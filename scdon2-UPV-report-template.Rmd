@@ -1,0 +1,458 @@
+---
+title: "Rapport de groupe en Sciences des Données 2 + Bases de données"
+author:
+- 'Girondin Audric 22001931'
+- 'Duckes Jonathan 22001974'
+- 'Mendil Youcef 201810962'
+- 'Mohand-Amer Manel 201810962'
+date: "12/12/2022"
+output:
+  pdf_document:
+    fig_caption: yes
+    keep_md: yes
+    keep_tex: yes
+    md_extensions: +raw_attribute
+    number_sections: yes
+    pandoc_args:
+    - --top-level-division="chapter"
+    - --bibliography="references.bib"
+    template: template.tex
+    toc: yes
+    toc_depth: 1
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_depth: '2'
+  word_document:
+    fig_caption: yes
+    number_sections: yes
+    pandoc_args: 
+    - --top-level-division="chapter"
+    - --to="odt+native_numbering"
+    toc: yes
+    toc_depth: '2'
+toc-title: "Table des matières"
+bibliography: references.bib
+coursecode: TV15MI-TV25MI
+csl: iso690-author-date-fr-no-abstract.csl
+Acknowledgements:
+- Nos plus sincères remerciements vont à nos encadrants pédagogiques pour les conseils
+  avisés sur notre travail.
+biblio-style: elsarticle-harv
+session: 2022
+team: 2
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction {.label:s-intro}
+
+Suite à la récente pandémie survenue ces dernieres années à cause du
+Covid-19, nous nous sommes intéressés au domaine de la santé, plus
+précisement dans la région d'Outre-mer. Durant cette période de
+nombreuses personnes sont tombées malades, tous les hopitaux ont été
+mobilisés ainsi qu'énormément de personnels mais il y a aussi eu une
+forte quantité de médicaments vendus et du coup remboursés, c'est
+pourquoi notre objet d'études portera sur :
+
+\bigskip
+
+\centering
+
+**Quels sont les médicaments les plus ou les mieux remboursés en région
+d'Outre-mer ?**
+
+\bigskip
+
+\justifying
+
+## Quelques détails techniques
+
+la Figure$~$\ref{myfigure}.
+
+![Une légende sous la figure.](logo-upvm_4.jpg){#myfigure width="4cm"
+height="2cm"}
+
+
+# Base de données
+
+## Descriptif des tables
+
+Tables sélectionnées :
+
+Médicament :
+
+ATC1 : Groupe Principal Anatomique CIP13 : Code Identification
+Spécialité Pharmaceutique GEN_NUM : Groupe Générique
+
+Bénéficiaire :
+
+BEN_REG : Région de Résidence du Bénéficiaire (Filtrée de façon à
+seulement prendre la région Outre-Mer)
+
+Prescripteur :
+
+PSP_SPE : Prescripteur
+
+Indicateur :
+
+REM : Montant Remboursé BSE : Base de Remboursement BOITES : Nombre de
+boîtes délivrées
+
+## Modèles MCD et MOD
+
+Ci-dessous notre MCD et MOD : \bigskip
+
+Le MCD,Figure$~$\ref{MCD}
+
+![LE MCD](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/mcd/mcd.png){#MCD
+width="10cm" height="10cm"}
+
+Le MOD,Figure$~$\ref{MOD}
+
+![LE MOD](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/MOD_modifie.png){#MOD}
+
+## Import des données
+
+-   Suppressions de valeurs manquantes
+-   Suppression de colonnes inutiles pour notre problématique
+-   Tri par région afin d'étudier uniquement la région Outre-mer
+
+## Requêtes réalisées
+
+Voici les différentes requêtes réalisées au cours de notre projet, voir
+les figures ci dessous:
+
+-   Le montant total vendu par medicament
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle%20base/Afficher%20le%20montant%20total%20vendu%20par%20medicament/Requete-%20montant%20total%20vendu.png)
+\bigskip
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle%20base/Afficher%20le%20montant%20total%20vendu%20par%20medicament/Resultat-%20montant%20total%20vendu.png)
+
+\bigskip
+
+-   Lister les médicaments non remboursés
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle%20base/Medicaments%20non%20rembours%C3%A9s/Requete%20-%20les%20medicaments%20non%20rembours%C3%A9s.png)\hspace*{2cm}
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/Medicaments non remboursés/Resultat - les medicaments non remboursés.png)
+
+-   Les médicaments les plus souvent remboursés
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle%20base/Les%20plus%20souvent%20rembours%C3%A9s/Requete-%20les%20plus%20souvent%20rembours%C3%A9s.png)
+\bigskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle%20base/Les%20plus%20souvent%20rembours%C3%A9s/Resultat-%20les%20plus%20souvent%20rembours%C3%A9s.png)
+
+-   Les moins souvent remboursés
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle%20base/les%20moins%20souvent%20rembours%C3%A9s/Requete-%20les%20moins%20souvent%20rembours%C3%A9s.png)
+\bigskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle%20base/les%20moins%20souvent%20rembours%C3%A9s/Resultat%20-%20les%20moins%20souvent%20rembours%C3%A9s.png)
+
+-   Lister le prix et le montant remboursé de chaque médicament
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle%20base/Afficher%20pour%20chaque%20m%C3%A9dicament%20son%20prix%20et%20son%20montant%20rembours%C3%A9/Requete-prix%20et%20montant%20rembours%C3%A9.png)
+\bigskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle%20base/Afficher%20pour%20chaque%20m%C3%A9dicament%20son%20prix%20et%20son%20montant%20rembours%C3%A9/Resultat-prix%20et%20montant%20rembours%C3%A9.png)
+
+\bigskip
+
+-   Le Taux de remboursement
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle%20base/Taux%20de%20remboursement/Requete-%20taux%20de%20remboursement.png)
+\bigskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle%20base/Taux%20de%20remboursement/Resultat-taux%20de%20remboursement.png)
+
+-   Les 10 médicaments les mieux remboursés \bigskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/Les_10_medicaments_les_mieux_rembourses/Les%2010%20medicaments%20les%20mieux%20rembours%C3%A9s/Requete-Les%2010%20medicaments%20les%20mieux%20rembours%C3%A9s.png){width="15cm"
+height="10cm"} \bigskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/Les_10_medicaments_les_mieux_rembourses/Les%2010%20medicaments%20les%20mieux%20rembours%C3%A9s/Resultat-Les%2010%20medicaments%20les%20mieux%20rembours%C3%A9s.png){width="15cm"
+height="10cm"}
+
+\bigskip
+## Quelques détails techniques
+
+Il est possible d'établir une connection entre Rstudio et PhpMyAdmin en
+local à l'aide du code suivant:
+
+\scriptsize
+
+```{r eval = FALSE}
+# install.packages("RMySQL")
+# install.packages("DBI")
+library(DBI)
+con <- DBI::dbConnect(RMySQL::MySQL(),
+host = "127.0.0.1",
+port = 3306,
+username = "root",
+password = "",
+dbname = "projet")
+```
+
+
+\bigskip
+\bigskip
+\bigskip
+
+Nous avons utilisé cette méthode afin d'importer notre base de données
+sur Rstudio et créer des requetes ainsi que des graphiques.
+
+# Matériel et Méthodes
+
+## Logiciels
+
+Nous avons utilisés principalement le langage de programmation Rstudio,
+Wamp mais aussi Excel.
+
+-   Rstudio pour les analyses statistiques et la création du rapport à
+    travers RMarkdown
+-   Wamp afin de se connecter à PhpMyAdmin afin de travailler sur nos
+    différentes requêtes
+-   Excel pour effectuer le pré-traitement des données
+-   Whatsapp, une application de messagerie instantanée afin de
+    communiquer sur les avancées
+
+Nous avons travaillé sur 4 ordinateurs differents :
+
+-   Swift SF113-31, processeur Intel(R) Pentium(R) CPU N4200 1.10 GHz,
+    Mémoire RAM installée :4,00,Go (3,84,Go utilisable) Type du système
+    : Système d'exploitation 64bits,processeur x64, Windows 10
+
+-   Dell XPS 13 7390 2-in-1,processeur Intel(R) Core(TM) i7-1065G7 CPU
+    \@ 1.30GHz 1.50 GHz, Mémoire RAM installée:16,0 Go (15,8 Go
+    utilisable) Type du système : Système d'exploitation 64 bits,
+    processeur x64, Windows 11
+
+-   DESKTOP-SI1AM2U AMD A9-9425 RADEON R5, 5 COMPUTE CORES 2C + 3G,
+    3.10GHz, Mémoire RAM : 8,00(7,47 utilisable) Type du système :
+    Système d'exploitation 64 bits, processeur x64, Windows 10
+
+-   MacBook Pro(13-inch,2017,Rwo Thunderbolt 3 ports), Processeur : 2,3
+    GHz Intel Core i5 double coeur, Mémoire 8Go 2133 MHz LPDDR3, macOS
+    Monterey(version 12.6.1)
+
+\bigskip
+
+## Description des Données
+
+Les données sont stockés sur PhpMyAdmin dans la base de données sur un
+serveur en .sql et sur R elles sont importées sous forme de dataframe.
+Le fichier comporte 3 tables d'environ 45 000 lignes.
+
+## Nettoyage des données
+
+En ce qui concerne notre base de données nous n'avons décidé de
+supprimer les valeurs manquantes cependant il y avait beaucoup de
+colonnes inutiles à l'analyse de données, donc nous avons décidés de les
+supprimer.
+
+## Étapes de Pré-traitements
+
+Quelles transformations avez-vous effectuées sur vos données pour les
+rendre utilisables? Tout d'abord notre jeu de donnée était composé de
+plus de d'1 million de lignes.En filtrant par les régions et en ne
+gardant que la région Outre-Mer cela nous a permis de réduire la base à
+peu près 45 000 lignes.
+
+\medskip
+\centering
+A l'aide du logiciel R, nous avons gardé uniquement les lignes des clés
+existantes dans toutes les tables,nous avons utilisé des jointures
+internes.
+
+\medskip
+\centering
+De plus nous avons concaténé deux colonnes afin de créer une clé
+unique,ci- dessous :
+
+
+\medskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/cr%C3%A9ation%20CIP7.jpeg){#CIP7}
+
+## Modélisation de la base de données
+
+![LE MCD](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/mcd/mcd.png){#MCD
+width="10cm" height="10cm"}
+
+## Modélisation statistique
+\bigskip
+
+Nous allons utiliser des diagrammes en barre, ainsi que des boxplots afin d'avoir une représentation cohérente avec nos types de variables mais aussi afin d'avoir des informations sur les données que nous étudions et qui sont propre à nos requêtes
+
+
+
+# Analyse Exploratoire des Données
+
+Ici , nous avons des statisques basqiues afin de nous informer sur données de la requete, elles ont été faite à laide de la fonction "summary"
+
+\medskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/d2){#analyse width="10cm" height="5cm"}
+
+\medskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/barplot.JPG){#barplot width="10cm" height="10cm"}
+
+\bigskip
+\bigskip
+\bigskip
+
+\bigskip
+\bigskip
+\bigskip
+
+## Utiliser R {.fragile}
+
+\centering
+Nous pouvons utliser R afin de montrer une partie de code utilisé par exemple : 
+```
+l_ATC1<-c("Anti-infectieux","Dermatologie","Hormones systémiques","Sang & organes ","Sys cardio-vasculaire","Système digestif","Sys génito-urinaire")
+
+somme montant remb<- c(1122911.0,397021.4,1516079.4,3695387.4,7511313.5,9894111.6,3423083.5)
+
+barplot(somme montant remb,main = 'Barplot du montant total remboursé par zone ciblés de médiacement',xlab= "Zone ciblée",ylab = "Somme des montants remboursés",xlim =c(0,8) ,ylim= c(0,10000000), names.arg = l_ATC1,col ="deeppink",border = "royalblue",width = 1,space =NULL)
+
+```
+
+
+\bigskip
+\bigskip
+\bigskip
+\centering
+Le code ci-dessus a généré le graphique précédent
+\bigskip
+
+
+
+
+# Analyse et Résultats
+
+## Un premier modèle
+
+\bigskip
+\bigskip
+
+Voici l'un de nos premier modèle afin de déterminer les quartiles, le minimum, le maximum , écart inter-quartile ainsi que la médiane d'une requête.
+\bigskip
+
+\bigskip
+\bigskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/boxplot(somme)){#boxplot}
+
+\bigskip
+\bigskip
+
+## Quelques exemples de résultats attendus
+\bigskip
+\centering
+Boxplot des remboursements par catégorie
+\bigskip
+
+
+\bigskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/boxplot(remb par catégorie).JPG){#Boxplot width="10cm" height="10cm"}
+
+\medskip
+
+Ci-dessous un diragramme représentant le taux de remboursement des médicaments les plus vendus en Outre-mer
+\bigskip
+
+
+\bigskip
+\bigskip
+
+![](C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base%20de%20donn%C3%A9es/Projet/diag_tx_remb.png){#txremb width="10cm" height="10cm"}
+
+# Discussion
+
+Nous pouvons donc constater que le groupe ciblé, système digestif et métabolisme, est celui qui a le plus grand montant remboursé sur cette année 2021.Cependant nous avons aussi remarqué qu'il y avait une forte relation entre le taux de remboursement et le prix du médicament.
+\bigskip
+\bigskip
+
+\bigskip
+\centering
+Avec les différentes requetes réalisé, nous avons pu voir aussi l'évolution des prix des médicaments, et les différences de prix selon le type de médicament, le type de zone ciblée ainsi que les différences de remboursement.
+
+# Conclusion et perspectives {.label:ccl}
+
+Nous pouvons donc en conclure que à l'aide des plusieurs requêtes et diagrammes que les médicaments les mieux remboursés en 2021 sont ceux traitant le système digestif et le métabolisme.
+On pourrait aussi dire que le taux de remboursement a une certaine relation avec le prix de vente des médicaments
+
+\bigskip
+\bigskip
+\bigskip
+\centering
+Nous aurions pu envisager d'étudier cette problématique sur plusieurs années par exemple sur les 5 ou les 10 dernieres années.
+Mais dans l'avenir nous pouvons penser à faire une projections sur les années futures, des estimations basées sur les années actuelles.
+
+# Bibliographie {.unnumbered}
+
+::: {#refs}
+:::
+\bigskip
+\bigskip
+\centering
+GroupReportTemplate
+\bigskip
+\bigskip
+
+"Le Logiciel R" par Pierre Lafaye de Micheaux,Remy Drouilhet et Benoit Liquet
+\bigskip
+
+Cours de Rstudio dispensé à l'Université Paul-Valery 3 de Montpellier
+\bigskip
+
+Cours et TD de Programmation Web par Sandra Bringuay,dispensé à l'Université Paul-Valery 3 de Montpellier
+\bigskip
+\centering
+R Markdown Cheat Sheet
+
+```{=tex}
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+```
+# Annexes {.unnumbered}
+
+## **Codes** {.unnumbered}
+```
+ggplot(df3, aes(x=NomMedoc)) +
+  geom_bar(aes(y=coutApresRemboursement), fill='blue', stat="identity") +
+  scale_y_continuous(limits = c(0,10))+
+  geom_point(aes(y=(NbBoites/10000)), color = rgb(0, 1, 0), pch=16, size=3) +
+  geom_path(aes(y=coutApresRemboursement, group=1), colour="slateblue1", lty=3, size=0.9) +
+  theme(axis.text.x = element_text(angle=90, vjust=0.6,size=7)) +
+  labs(title = "Répartition du taux de remboursement des médicament les plus vendus en Outre-mer",  x = 'Nom des médicaments', y ='Taux de remboursement')
+```
+\bigskip
+\bigskip
+
+```
+  mutate(class = fct_reorder(l_ATC1, REM, .fun='length' )) %>%
+  ggplot( aes(x=l_ATC1, y=REM, fill=l_ATC1)) + 
+  geom_boxplot() +
+  scale_y_continuous(limits = c(0,250))+
+  xlab("l_ATC1") +
+  theme(legend.position="none",axis.text.x = element_text(angle=-20, vjust=0.6,size=10)) +
+  xlab("") +
+  xlab("")
+  
+```
+
+## **Tables** {.unnumbered}
+
+Nous n'avons aucun tableaux en supplément à afficher.
+
+

@@ -1,0 +1,676 @@
+\documentclass[mstat,12pt]{unswthesis}
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% OK...Now we get to some actual input.  The first part sets up
+% the title etc that will appear on the front page
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Projet réalisé par l'équipe 2\\[0.5cm]Rapport de groupe en
+Sciences des Données 2 + Bases de données}
+
+\authornameonly{Girondin Audric 22001931 Duckes Jonathan 22001974 Mendil
+Youcef 201810962 Mohand-Amer Manel 201810962 }
+
+\author{\Authornameonly}
+
+\copyrightfalse
+\figurespagefalse
+\tablespagefalse
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  And now the document begins
+%  The \beforepreface and \afterpreface commands puts the
+%  contents page etc in
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\input{header.tex}
+
+\renewcommand{\contentsname}{Table des matières}
+
+\renewcommand{\chaptername}{Chapitre}
+
+
+
+\begin{document}
+
+\beforepreface
+
+%\afterpage{\blankpage}
+
+% plagiarism
+
+\prefacesection{Déclaration de non plagiat}
+
+\vskip 2pc \noindent Nous déclarons que ce rapport est le fruit de notre seul travail, à part lorsque cela est indiqué  explicitement. 
+
+\vskip 2pc  \noindent Nous acceptons que la personne évaluant ce rapport puisse, pour les besoins de cette évaluation:
+\begin{itemize}
+\item la reproduire et en fournir une copie à un autre membre de l'université; et/ou,
+\item en communiquer une copie à un service en ligne de détection de plagiat (qui pourra en retenir une copie pour les besoins d'évaluation future).
+\end{itemize}
+
+\vskip 2pc \noindent Nous certifions que nous avons lu et compris les règles ci-dessus.\vspace{24pt}
+
+\vskip 2pc \noindent En signant cette déclaration, nous acceptons ce qui précède.
+\vskip 2pc \noindent
+Signature: \rule{7cm}{0.25pt} \hfill Date: \rule{4cm}{0.25pt} \\[1cm]
+Signature: \rule{7cm}{0.25pt} \hfill Date: \rule{4cm}{0.25pt} \\[1cm]
+Signature: \rule{7cm}{0.25pt} \hfill Date: \rule{4cm}{0.25pt} \\[1cm]
+Signature: \rule{7cm}{0.25pt} \hfill Date: \rule{4cm}{0.25pt} \\[1cm]
+\vskip 1pc
+
+%\afterpage{\blankpage}
+
+% Acknowledgements are optional
+
+
+\prefacesection{Remerciements}
+
+{\bigskip}Nos plus sincères remerciements vont à nos encadrants
+pédagogiques pour les conseils avisés sur notre travail.\\[1cm] 
+
+{\bigskip\bigskip\bigskip\noindent} 12/12/2022.
+
+%\afterpage{\blankpage}
+
+% Abstract
+
+\prefacesection{Résumé}
+
+
+
+%\afterpage{\blankpage}
+
+
+\afterpreface
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Now we can start on the first chapter
+% Within chapters we have sections, subsections and so forth
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\afterpage{\blankpage}
+
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+Suite à la récente pandémie survenue ces dernieres années à cause du
+Covid-19, nous nous sommes intéressés au domaine de la santé, plus
+précisement dans la région d'Outre-mer. Durant cette période de
+nombreuses personnes sont tombées malades, tous les hopitaux ont été
+mobilisés ainsi qu'énormément de personnels mais il y a aussi eu une
+forte quantité de médicaments vendus et du coup remboursés, c'est
+pourquoi notre objet d'études portera sur :
+
+\bigskip
+
+\centering
+
+\textbf{Quels sont les médicaments les plus ou les mieux remboursés en
+région d'Outre-mer ?}
+
+\bigskip
+
+\justifying
+
+\hypertarget{quelques-duxe9tails-techniques}{%
+\section{Quelques détails
+techniques}\label{quelques-duxe9tails-techniques}}
+
+la Figure\(~\)\ref{myfigure}.
+
+\begin{figure}
+\hypertarget{myfigure}{%
+\centering
+\includegraphics[width=4cm,height=2cm]{logo-upvm_4.jpg}
+\caption{Une légende sous la figure.}\label{myfigure}
+}
+\end{figure}
+
+\hypertarget{base-de-donnuxe9es}{%
+\chapter{Base de données}\label{base-de-donnuxe9es}}
+
+\hypertarget{descriptif-des-tables}{%
+\section{Descriptif des tables}\label{descriptif-des-tables}}
+
+Tables sélectionnées :
+
+Médicament :
+
+ATC1 : Groupe Principal Anatomique CIP13 : Code Identification
+Spécialité Pharmaceutique GEN\_NUM : Groupe Générique
+
+Bénéficiaire :
+
+BEN\_REG : Région de Résidence du Bénéficiaire (Filtrée de façon à
+seulement prendre la région Outre-Mer)
+
+Prescripteur :
+
+PSP\_SPE : Prescripteur
+
+Indicateur :
+
+REM : Montant Remboursé BSE : Base de Remboursement BOITES : Nombre de
+boîtes délivrées
+
+\hypertarget{moduxe8les-mcd-et-mod}{%
+\section{Modèles MCD et MOD}\label{moduxe8les-mcd-et-mod}}
+
+Ci-dessous notre MCD et MOD : \bigskip
+
+Le MCD,Figure\(~\)\ref{MCD}
+
+\begin{figure}
+\hypertarget{MCD}{%
+\centering
+\includegraphics[width=10cm,height=10cm]{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/mcd/mcd.png}
+\caption{LE MCD}\label{MCD}
+}
+\end{figure}
+
+Le MOD,Figure\(~\)\ref{MOD}
+
+\begin{figure}
+\hypertarget{MOD}{%
+\centering
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/MOD_modifie.png}
+\caption{LE MOD}\label{MOD}
+}
+\end{figure}
+
+\hypertarget{import-des-donnuxe9es}{%
+\section{Import des données}\label{import-des-donnuxe9es}}
+
+\begin{itemize}
+\tightlist
+\item
+  Suppressions de valeurs manquantes
+\item
+  Suppression de colonnes inutiles pour notre problématique
+\item
+  Tri par région afin d'étudier uniquement la région Outre-mer
+\end{itemize}
+
+\hypertarget{requuxeates-ruxe9alisuxe9es}{%
+\section{Requêtes réalisées}\label{requuxeates-ruxe9alisuxe9es}}
+
+Voici les différentes requêtes réalisées au cours de notre projet, voir
+les figures ci dessous:
+
+\begin{itemize}
+\tightlist
+\item
+  Le montant total vendu par medicament
+\end{itemize}
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/Afficher le montant total vendu par medicament/Requete- montant total vendu.png}
+\bigskip
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/Afficher le montant total vendu par medicament/Resultat- montant total vendu.png}
+
+\bigskip
+
+\begin{itemize}
+\tightlist
+\item
+  Lister les médicaments non remboursés
+\end{itemize}
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/Medicaments non remboursés/Requete - les medicaments non remboursés.png}\hspace*{2cm}
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/Medicaments non remboursés/Resultat - les medicaments non remboursés.png}
+
+\begin{itemize}
+\tightlist
+\item
+  Les médicaments les plus souvent remboursés
+\end{itemize}
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/Les plus souvent remboursés/Requete- les plus souvent remboursés.png}
+\bigskip
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/Les plus souvent remboursés/Resultat- les plus souvent remboursés.png}
+
+\begin{itemize}
+\tightlist
+\item
+  Les moins souvent remboursés
+\end{itemize}
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/les moins souvent remboursés/Requete- les moins souvent remboursés.png}
+\bigskip
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/les moins souvent remboursés/Resultat - les moins souvent remboursés.png}
+
+\begin{itemize}
+\tightlist
+\item
+  Lister le prix et le montant remboursé de chaque médicament
+\end{itemize}
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/Afficher pour chaque médicament son prix et son montant remboursé/Requete-prix et montant remboursé.png}
+\bigskip
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/Afficher pour chaque médicament son prix et son montant remboursé/Resultat-prix et montant remboursé.png}
+
+\bigskip
+
+\begin{itemize}
+\tightlist
+\item
+  Le Taux de remboursement
+\end{itemize}
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/Taux de remboursement/Requete- taux de remboursement.png}
+\bigskip
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/ScreenshotsRequetes_nouvelle_base/ScreenshotsRequetes_nouvelle base/Taux de remboursement/Resultat-taux de remboursement.png}
+
+\begin{itemize}
+\tightlist
+\item
+  Les 10 médicaments les mieux remboursés \bigskip
+\end{itemize}
+
+\includegraphics[width=15cm,height=10cm]{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/Les_10_medicaments_les_mieux_rembourses/Les 10 medicaments les mieux remboursés/Requete-Les 10 medicaments les mieux remboursés.png}
+\bigskip
+
+\includegraphics[width=15cm,height=10cm]{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/Les_10_medicaments_les_mieux_rembourses/Les 10 medicaments les mieux remboursés/Resultat-Les 10 medicaments les mieux remboursés.png}
+
+\bigskip
+
+\hypertarget{quelques-duxe9tails-techniques-1}{%
+\section{Quelques détails
+techniques}\label{quelques-duxe9tails-techniques-1}}
+
+Il est possible d'établir une connection entre Rstudio et PhpMyAdmin en
+local à l'aide du code suivant:
+
+\scriptsize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("RMySQL")}
+\CommentTok{\# install.packages("DBI")}
+\FunctionTok{library}\NormalTok{(DBI)}
+\NormalTok{con }\OtherTok{\textless{}{-}}\NormalTok{ DBI}\SpecialCharTok{::}\FunctionTok{dbConnect}\NormalTok{(RMySQL}\SpecialCharTok{::}\FunctionTok{MySQL}\NormalTok{(),}
+\AttributeTok{host =} \StringTok{"127.0.0.1"}\NormalTok{,}
+\AttributeTok{port =} \DecValTok{3306}\NormalTok{,}
+\AttributeTok{username =} \StringTok{"root"}\NormalTok{,}
+\AttributeTok{password =} \StringTok{""}\NormalTok{,}
+\AttributeTok{dbname =} \StringTok{"projet"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\bigskip
+\bigskip
+\bigskip
+
+Nous avons utilisé cette méthode afin d'importer notre base de données
+sur Rstudio et créer des requetes ainsi que des graphiques.
+
+\hypertarget{matuxe9riel-et-muxe9thodes}{%
+\chapter{Matériel et Méthodes}\label{matuxe9riel-et-muxe9thodes}}
+
+\hypertarget{logiciels}{%
+\section{Logiciels}\label{logiciels}}
+
+Nous avons utilisés principalement le langage de programmation Rstudio,
+Wamp mais aussi Excel.
+
+\begin{itemize}
+\tightlist
+\item
+  Rstudio pour les analyses statistiques et la création du rapport à
+  travers RMarkdown
+\item
+  Wamp afin de se connecter à PhpMyAdmin afin de travailler sur nos
+  différentes requêtes
+\item
+  Excel pour effectuer le pré-traitement des données
+\item
+  Whatsapp, une application de messagerie instantanée afin de
+  communiquer sur les avancées
+\end{itemize}
+
+Nous avons travaillé sur 4 ordinateurs differents :
+
+\begin{itemize}
+\item
+  Swift SF113-31, processeur Intel(R) Pentium(R) CPU N4200 1.10 GHz,
+  Mémoire RAM installée :4,00,Go (3,84,Go utilisable) Type du système :
+  Système d'exploitation 64bits,processeur x64, Windows 10
+\item
+  Dell XPS 13 7390 2-in-1,processeur Intel(R) Core(TM) i7-1065G7 CPU @
+  1.30GHz 1.50 GHz, Mémoire RAM installée:16,0 Go (15,8 Go utilisable)
+  Type du système : Système d'exploitation 64 bits, processeur x64,
+  Windows 11
+\item
+  DESKTOP-SI1AM2U AMD A9-9425 RADEON R5, 5 COMPUTE CORES 2C + 3G,
+  3.10GHz, Mémoire RAM : 8,00(7,47 utilisable) Type du système : Système
+  d'exploitation 64 bits, processeur x64, Windows 10
+\item
+  MacBook Pro(13-inch,2017,Rwo Thunderbolt 3 ports), Processeur : 2,3
+  GHz Intel Core i5 double coeur, Mémoire 8Go 2133 MHz LPDDR3, macOS
+  Monterey(version 12.6.1)
+\end{itemize}
+
+\bigskip
+
+\hypertarget{description-des-donnuxe9es}{%
+\section{Description des Données}\label{description-des-donnuxe9es}}
+
+Les données sont stockés sur PhpMyAdmin dans la base de données sur un
+serveur en .sql et sur R elles sont importées sous forme de dataframe.
+Le fichier comporte 3 tables d'environ 45 000 lignes.
+
+\hypertarget{nettoyage-des-donnuxe9es}{%
+\section{Nettoyage des données}\label{nettoyage-des-donnuxe9es}}
+
+En ce qui concerne notre base de données nous n'avons décidé de
+supprimer les valeurs manquantes cependant il y avait beaucoup de
+colonnes inutiles à l'analyse de données, donc nous avons décidés de les
+supprimer.
+
+\hypertarget{uxe9tapes-de-pruxe9-traitements}{%
+\section{Étapes de
+Pré-traitements}\label{uxe9tapes-de-pruxe9-traitements}}
+
+Quelles transformations avez-vous effectuées sur vos données pour les
+rendre utilisables? Tout d'abord notre jeu de donnée était composé de
+plus de d'1 million de lignes.En filtrant par les régions et en ne
+gardant que la région Outre-Mer cela nous a permis de réduire la base à
+peu près 45 000 lignes.
+
+\medskip
+\centering
+
+A l'aide du logiciel R, nous avons gardé uniquement les lignes des clés
+existantes dans toutes les tables,nous avons utilisé des jointures
+internes.
+
+\medskip
+\centering
+
+De plus nous avons concaténé deux colonnes afin de créer une clé
+unique,ci- dessous :
+
+\medskip
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/création CIP7.jpeg}
+
+\hypertarget{moduxe9lisation-de-la-base-de-donnuxe9es}{%
+\section{Modélisation de la base de
+données}\label{moduxe9lisation-de-la-base-de-donnuxe9es}}
+
+\begin{figure}
+\hypertarget{MCD}{%
+\centering
+\includegraphics[width=10cm,height=10cm]{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/mcd/mcd.png}
+\caption{LE MCD}\label{MCD}
+}
+\end{figure}
+
+\hypertarget{moduxe9lisation-statistique}{%
+\section{Modélisation statistique}\label{moduxe9lisation-statistique}}
+
+\bigskip
+
+Nous allons utiliser des diagrammes en barre, ainsi que des boxplots
+afin d'avoir une représentation cohérente avec nos types de variables
+mais aussi afin d'avoir des informations sur les données que nous
+étudions et qui sont propre à nos requêtes
+
+\hypertarget{analyse-exploratoire-des-donnuxe9es}{%
+\chapter{Analyse Exploratoire des
+Données}\label{analyse-exploratoire-des-donnuxe9es}}
+
+Ici , nous avons des statisques basqiues afin de nous informer sur
+données de la requete, elles ont été faite à laide de la fonction
+``summary''
+
+\medskip
+
+\includegraphics[width=10cm,height=5cm]{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/d2}
+
+\medskip
+
+\includegraphics[width=10cm,height=10cm]{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/barplot.JPG}
+
+\bigskip
+\bigskip
+\bigskip
+
+\bigskip
+\bigskip
+\bigskip
+
+\hypertarget{utiliser-r}{%
+\section{Utiliser R}\label{utiliser-r}}
+
+\centering
+
+Nous pouvons utliser R afin de montrer une partie de code utilisé par
+exemple :
+
+\begin{verbatim}
+l_ATC1<-c("Anti-infectieux","Dermatologie","Hormones systémiques","Sang & organes ","Sys cardio-vasculaire","Système digestif","Sys génito-urinaire")
+
+somme montant remb<- c(1122911.0,397021.4,1516079.4,3695387.4,7511313.5,9894111.6,3423083.5)
+
+barplot(somme montant remb,main = 'Barplot du montant total remboursé par zone ciblés de médiacement',xlab= "Zone ciblée",ylab = "Somme des montants remboursés",xlim =c(0,8) ,ylim= c(0,10000000), names.arg = l_ATC1,col ="deeppink",border = "royalblue",width = 1,space =NULL)
+\end{verbatim}
+
+\bigskip
+\bigskip
+\bigskip
+\centering
+
+Le code ci-dessus a généré le graphique précédent \bigskip
+
+\hypertarget{analyse-et-ruxe9sultats}{%
+\chapter{Analyse et Résultats}\label{analyse-et-ruxe9sultats}}
+
+\hypertarget{un-premier-moduxe8le}{%
+\section{Un premier modèle}\label{un-premier-moduxe8le}}
+
+\bigskip
+\bigskip
+
+Voici l'un de nos premier modèle afin de déterminer les quartiles, le
+minimum, le maximum , écart inter-quartile ainsi que la médiane d'une
+requête. \bigskip
+
+\bigskip
+\bigskip
+
+\includegraphics{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/boxplot(somme)}
+
+\bigskip
+\bigskip
+
+\hypertarget{quelques-exemples-de-ruxe9sultats-attendus}{%
+\section{Quelques exemples de résultats
+attendus}\label{quelques-exemples-de-ruxe9sultats-attendus}}
+
+\bigskip
+\centering
+
+Boxplot des remboursements par catégorie \bigskip
+
+\bigskip
+
+\includegraphics[width=10cm,height=10cm]{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/boxplot(remb par catégorie).JPG}
+
+\medskip
+
+Ci-dessous un diragramme représentant le taux de remboursement des
+médicaments les plus vendus en Outre-mer \bigskip
+
+\bigskip
+\bigskip
+
+\includegraphics[width=10cm,height=10cm]{C:/Users/audri/Desktop/Licence_MIASHS/L3_MIASHS_AUDRIC/Base de données/Projet/diag_tx_remb.png}
+
+\hypertarget{discussion}{%
+\chapter{Discussion}\label{discussion}}
+
+Nous pouvons donc constater que le groupe ciblé, système digestif et
+métabolisme, est celui qui a le plus grand montant remboursé sur cette
+année 2021.Cependant nous avons aussi remarqué qu'il y avait une forte
+relation entre le taux de remboursement et le prix du médicament.
+\bigskip \bigskip
+
+\bigskip
+\centering
+
+Avec les différentes requetes réalisé, nous avons pu voir aussi
+l'évolution des prix des médicaments, et les différences de prix selon
+le type de médicament, le type de zone ciblée ainsi que les différences
+de remboursement.
+
+\hypertarget{conclusion-et-perspectives}{%
+\chapter{Conclusion et perspectives}\label{conclusion-et-perspectives}}
+
+Nous pouvons donc en conclure que à l'aide des plusieurs requêtes et
+diagrammes que les médicaments les mieux remboursés en 2021 sont ceux
+traitant le système digestif et le métabolisme. On pourrait aussi dire
+que le taux de remboursement a une certaine relation avec le prix de
+vente des médicaments
+
+\bigskip
+\bigskip
+\bigskip
+\centering
+
+Nous aurions pu envisager d'étudier cette problématique sur plusieurs
+années par exemple sur les 5 ou les 10 dernieres années. Mais dans
+l'avenir nous pouvons penser à faire une projections sur les années
+futures, des estimations basées sur les années actuelles.
+
+\hypertarget{bibliographie}{%
+\chapter*{Bibliographie}\label{bibliographie}}
+\addcontentsline{toc}{chapter}{Bibliographie}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\end{CSLReferences}
+
+\bigskip
+\bigskip
+\centering
+
+GroupReportTemplate \bigskip \bigskip \centering ``Le Logiciel R'' par
+Pierre Lafaye de Micheaux,Remy Drouilhet et Benoit Liquet \bigskip
+\centering Cours de Rstudio dispensé à l'Université Paul-Valery 3 de
+Montpellier \bigskip \centering Cours et TD de Programmation Web par
+Sandra Bringuay,dispensé à l'Université Paul-Valery 3 de Montpellier
+\bigskip \centering R Markdown Cheat Sheet
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+
+\hypertarget{annexes}{%
+\chapter*{Annexes}\label{annexes}}
+\addcontentsline{toc}{chapter}{Annexes}
+
+\hypertarget{codes}{%
+\section*{\texorpdfstring{\textbf{Codes}}{Codes}}\label{codes}}
+\addcontentsline{toc}{section}{\textbf{Codes}}
+
+\begin{verbatim}
+ggplot(df3, aes(x=NomMedoc)) +
+  geom_bar(aes(y=coutApresRemboursement), fill='blue', stat="identity") +
+  scale_y_continuous(limits = c(0,10))+
+  geom_point(aes(y=(NbBoites/10000)), color = rgb(0, 1, 0), pch=16, size=3) +
+  geom_path(aes(y=coutApresRemboursement, group=1), colour="slateblue1", lty=3, size=0.9) +
+  theme(axis.text.x = element_text(angle=90, vjust=0.6,size=7)) +
+  labs(title = "Répartition du taux de remboursement des médicament les plus vendus en Outre-mer",  x = 'Nom des médicaments', y ='Taux de remboursement')
+\end{verbatim}
+
+\bigskip
+\bigskip
+
+\begin{verbatim}
+  mutate(class = fct_reorder(l_ATC1, REM, .fun='length' )) %>%
+  ggplot( aes(x=l_ATC1, y=REM, fill=l_ATC1)) + 
+  geom_boxplot() +
+  scale_y_continuous(limits = c(0,250))+
+  xlab("l_ATC1") +
+  theme(legend.position="none",axis.text.x = element_text(angle=-20, vjust=0.6,size=10)) +
+  xlab("") +
+  xlab("")
+  
+\end{verbatim}
+
+\hypertarget{tables}{%
+\section*{\texorpdfstring{\textbf{Tables}}{Tables}}\label{tables}}
+\addcontentsline{toc}{section}{\textbf{Tables}}
+
+Nous n'avons aucun tableaux en supplément à afficher.
+
+
+
+
+
+
+
+\end{document}
+
