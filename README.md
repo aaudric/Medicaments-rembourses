@@ -1,4 +1,4 @@
-# medicament
+# Médicaments remboursés
 
 
-projet medicament avec base de données et Rstudio
+Création de graphiques en exploitant une base de données avec MySQL et Rstudio
